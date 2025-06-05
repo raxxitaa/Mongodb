@@ -1,0 +1,69 @@
+show databases;
+
+create database vit;
+use vit;
+
+create table cse(
+s_id int,
+s_name varchar(20),
+s_marks int,
+s_address varchar(50)
+);
+
+create table ece(
+s_id int,
+s_name varchar(20),
+s_marks int,
+s_parent varchar(20)
+);
+
+create table mech(
+s_id int,
+s_name varchar(20),
+s_marks int,
+s_age int
+);
+
+insert into cse values(1, 'rakesh', 98, 'nuzvid');
+insert into cse values(2, 'kumar', 94, 'vijayawada');
+insert into cse values(3, 'rahul', 88, 'vizag');
+insert into cse values(4, 'navya', 99, 'hyderabad');
+insert into cse values(5, 'raxita', 87, 'mumbai');
+
+insert into ece values(1, 'abhi', 69, 'mohan');
+insert into ece values(2, 'rohan', 89, 'priya');
+insert into ece values(3, 'roshan', 93, 'kumar');
+insert into ece values(4, 'priya', 67, 'sasi');
+insert into ece values(5, 'mamatha', 87, 'nehit');
+
+insert into mech values(1, 'harsha', 64, 20);
+insert into mech values(2, 'rishi', 56, 18);
+insert into mech values(3, 'prateek', 76, 21);
+insert into mech values(4, 'briha', 50, 20);
+insert into mech values(5, 'madhu', 70, 21);
+
+alter table ece add(
+s_age int,
+s_address varchar(20)
+);
+
+alter table ece drop column s_age;
+
+alter table cse add(s_country varchar(30) default 'India');
+
+insert into cse values(6, 'kavya', 67, 'rajamundry');
+
+INSERT INTO cse(s_id, s_name, s_marks, s_address) VALUES (7, 'ravi', 78, 'warangal');
+
+insert into cse values(8, 'komal', 88, 'texas','usa');
+
+/*These update does't work because the where condition should be on primary key or unique keys
+here we did not give primary key so it wont work and get the error of safe update doesnot work*/
+
+UPDATE cse SET s_marks = 100 WHERE s_id = 6;
+
+update cse set s_marks = s_marks+50;
+
+select*from cse;
+select*from ece;
+select*from mech;
